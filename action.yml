@@ -1,0 +1,20 @@
+# action.yml
+name: 'Detects possible savings for faster image loading'
+description: 'Analyzes both desktop and mobile versions of your website and detects possible savings for faster image loading'
+branding:
+  icon: 'check-circle'
+  color: 'gray-dark'
+inputs:
+  url:
+    description: 'URL to analyse'
+    required: true
+outputs:
+  savings:
+    description: 'Total image savings in percent'
+  protip:
+    description: 'Suggestions on what to focus on'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.url }}
